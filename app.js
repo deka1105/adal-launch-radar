@@ -489,6 +489,7 @@ async function runCycle() {
   await mark(3); renderSell();
   steps[4].classList.add('on'); renderLearn();
   btn.disabled = false; toast(`Top prospect: ${top[0]?.company} · launch video ready · 5 pitches await approval`);
+  window.onCycleDone && window.onCycleDone();
 }
 
 // ---------- events ----------
