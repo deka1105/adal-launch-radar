@@ -7,6 +7,10 @@ An MVP for the Converge.AI × AdaL challenge (Stanford, Nov 20 2026): **turn Ada
 Open `index.html` in a browser. There's no build step and no API keys. Click **▶ Run today's cycle**.
 `index.html#autosim-autorun` pre-runs 3 simulated weeks of learning and then the cycle, which is handy for a kiosk demo.
 
+## Guided mode
+
+A first visit shows a welcome screen. With **Guided mode** on, each run walks through the stages with an overlay covering what's happening, why, how it helps AdaL, the brief text it answers, and a live **expected vs actual quality** table computed from the run. Each tab has a **? Explain** button. **📋 Challenge fit** maps every section of the brief to the app (covered / partial / gap).
+
 ## Why this works
 
 - **AdaL's leads come from community, not outbound.** These are the coffee pop-ups (50+ operators), the Vapi hackathon (330 sign-ups), London on Dec 3 and the ambassador program. Warm lists are scored first, and cold leads only fill the slots that are left.
@@ -44,5 +48,6 @@ Each swap point is marked `SWAP POINT` in `app.js`.
 ```
 index.html             UI and styles (light/dark)
 app.js                 Find → Qualify → Show → Sell → Learn
+guide.js               guided overlays, quality checks, challenge-fit map
 data/sample_leads.js   fictional warm lists (same columns as the CSV template)
 ```
