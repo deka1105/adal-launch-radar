@@ -1,0 +1,10 @@
+{
+  "github_repos": [
+    "supabase/supabase", "calcom/cal.com", "langfuse/langfuse", "formbricks/formbricks",
+    "twentyhq/twenty", "triggerdotdev/trigger.dev", "documenso/documenso", "novuhq/novu",
+    "hoppscotch/hoppscotch", "refinedev/refine", "mendableai/firecrawl", "dubinc/dub"
+  ],
+  "max_age_days": 21,
+  "ph_saas_topics": ["SaaS", "Developer Tools", "Productivity", "Artificial Intelligence", "Marketing", "Analytics", "Sales", "API", "No-Code", "Open Source"],
+  "x_query": "(\"just shipped\" OR \"now live\" OR \"launching today\" OR \"we just launched\" OR \"new release\" OR changelog) (saas OR api OR app OR startup) -is:retweet -is:reply lang:en has:links"
+}
