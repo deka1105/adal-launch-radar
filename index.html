@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdaL Launch Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f0; --panel:#ffffff; --ink:#1b1a1f; --muted:#6b6873; --line:#e6e2d9;
+  --brand:#a8344a; --brand-ink:#ffffff; --accent:#f2b705; --good:#2f8f5b; --warn:#c77700; --bad:#b33a3a;
+  --chip:#f1ede4; --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141317; --panel:#1d1c22; --ink:#f1eff5; --muted:#a29fab; --line:#2e2c35;
+    --brand:#e0657d; --brand-ink:#141317; --accent:#f2c84b; --good:#5cc68c; --warn:#e7a03c; --bad:#ef6b6b;
+    --chip:#2a2830; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141317; --panel:#1d1c22; --ink:#f1eff5; --muted:#a29fab; --line:#2e2c35;
+  --brand:#e0657d; --brand-ink:#141317; --accent:#f2c84b; --good:#5cc68c; --warn:#e7a03c; --bad:#ef6b6b;
+  --chip:#2a2830; --shadow:none;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,system-ui,sans-serif}
+header{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--panel);flex-wrap:wrap}
+header h1{font-size:18px;margin:0;font-weight:800;letter-spacing:-.01em}
+header h1 span{color:var(--brand)}
+header .sub{color:var(--muted);font-size:13px}
+header .spacer{flex:1}
+nav{display:flex;gap:4px;padding:8px 24px;background:var(--panel);border-bottom:1px solid var(--line);overflow-x:auto}
+nav button{border:0;background:none;color:var(--muted);padding:8px 12px;border-radius:8px;font:600 13px Inter,sans-serif;cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--chip);color:var(--ink)}
+nav button .n{display:inline-block;margin-right:6px;color:var(--brand)}
+main{max-width:1200px;margin:0 auto;padding:24px 16px 64px}
+section.tab{display:none} section.tab.on{display:block}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 14px;border-radius:8px;font:600 13px Inter,sans-serif;cursor:pointer}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.btn.big{padding:12px 20px;font-size:15px}
+.btn.sm{padding:4px 10px;font-size:12px}
+.btn:disabled{opacity:.5;cursor:default}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+h2{font-size:20px;margin:0 0 4px;letter-spacing:-.01em}
+h3{font-size:14px;margin:0 0 10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+p.lead{color:var(--muted);margin:0 0 16px}
+.chip{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--chip);font-size:12px;font-weight:600;margin:2px 4px 2px 0;white-space:nowrap}
+.chip.warm{background:color-mix(in srgb,var(--accent) 25%,transparent)}
+.chip.live{background:color-mix(in srgb,var(--good) 20%,transparent)}
+.chip.sim{background:color-mix(in srgb,var(--warn) 20%,transparent)}
+.chip.tier-max{background:color-mix(in srgb,var(--brand) 18%,transparent)}
+.chip.tier-sales{background:color-mix(in srgb,var(--brand) 32%,transparent)}
+.kpi .v{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.kpi .l{color:var(--muted);font-size:12px}
+.kpi .d{font-size:12px;color:var(--good)}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.step{flex:1;min-width:120px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-weight:600;font-size:13px;transition:.3s}
+.step b{display:block;color:var(--ink);font-size:14px}
+.step.on{border-color:var(--brand);color:var(--ink)}
+.step.done{border-color:var(--good)}
+.step.done b::after{content:" ✓";color:var(--good)}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+.prospect{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.prospect:last-child{border-bottom:0}
+.rank{width:32px;height:32px;border-radius:50%;background:var(--chip);display:grid;place-items:center;font-weight:800}
+.prospect.top .rank{background:var(--brand);color:var(--brand-ink)}
+.why{color:var(--muted);font-size:13px;margin-top:2px}
+.money{font-weight:800;font-size:18px;text-align:right;white-space:nowrap}
+.money small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+canvas#vid{width:100%;max-width:960px;aspect-ratio:16/9;border-radius:12px;background:#000;display:block}
+textarea,input[type=text],select{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px;font:13px/1.5 ui-monospace,Menlo,monospace}
+textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
+.bar{height:10px;border-radius:5px;background:var(--chip);overflow:hidden;position:relative}
+.bar i{display:block;height:100%;background:var(--brand);border-radius:5px;transition:width .5s}
+.bar i.prior{background:var(--muted);opacity:.5;position:absolute;top:0;left:0;height:4px}
+.row{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;margin:8px 0;font-size:13px}
+.funnel .row{grid-template-columns:150px 1fr 60px}
+.status{font-size:12px;font-weight:700}
+.status.approved{color:var(--good)} .status.skipped{color:var(--muted)} .status.pending{color:var(--warn)}
+.note{font-size:12px;color:var(--muted)}
+.reco{padding:10px 12px;border-left:3px solid var(--accent);background:var(--chip);border-radius:6px;margin:8px 0}
+.flex{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+.empty{padding:32px;text-align:center;color:var(--muted)}
+@media (max-width:600px){
+  header,nav{padding-left:16px;padding-right:16px}
+  .row{grid-template-columns:100px 1fr 56px}
+  .prospect{grid-template-columns:32px 1fr}
+  .prospect .money{grid-column:2;text-align:left}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>AdaL <span>Launch Radar</span></h1>
+  <div class="sub">Warm community leads who just shipped → launch video from their CHANGELOG → pitch → learn</div>
+  <div class="spacer"></div>
+  <button class="btn primary big" id="runBtn">▶ Run today's cycle</button>
+</header>
+<nav id="nav">
+  <button data-tab="run" class="on"><span class="n">0</span>Today</button>
+  <button data-tab="find"><span class="n">1</span>Find</button>
+  <button data-tab="qualify"><span class="n">2</span>Qualify</button>
+  <button data-tab="show"><span class="n">3</span>Show</button>
+  <button data-tab="sell"><span class="n">4</span>Sell</button>
+  <button data-tab="learn"><span class="n">5</span>Learn</button>
+  <button data-tab="setup"><span class="n">⚙</span>Setup</button>
+</nav>
+<main>
+  <!-- TODAY -->
+  <section class="tab on" id="tab-run">
+    <h2>Today's 5</h2>
+    <p class="lead">One click: score the warm lists first, then the release feed, and pick the 5 people most likely to upgrade to a paid plan this week.</p>
+    <div class="steps" id="steps">
+      <div class="step" data-s="find"><b>Find</b>warm lists + releases</div>
+      <div class="step" data-s="qualify"><b>Qualify</b>expected MRR</div>
+      <div class="step" data-s="show"><b>Show</b>launch video</div>
+      <div class="step" data-s="sell"><b>Sell</b>pitches drafted</div>
+      <div class="step" data-s="learn"><b>Learn</b>log outcomes</div>
+    </div>
+    <div class="grid g4" id="kpis"></div>
+    <div class="card" style="margin-top:16px" id="top5"><div class="empty">Press <b>Run today's cycle</b> to start.</div></div>
+  </section>
+
+  <!-- FIND -->
+  <section class="tab" id="tab-find">
+    <h2>Find</h2>
+    <p class="lead">Every contact source, warm before cold. Upload new lists or fetch live GitHub releases in Setup.</p>
+    <div class="grid g4" id="sourceCards"></div>
+    <div class="card" style="margin-top:16px"><div class="tablewrap"><table id="findTable"></table></div></div>
+  </section>
+
+  <!-- QUALIFY -->
+  <section class="tab" id="tab-qualify">
+    <h2>Qualify</h2>
+    <p class="lead">Ranked by <b>expected MRR = P(upgrade) × plan price</b>. P(upgrade) comes from the source's learned conversion rate, adjusted by release freshness and the launch-video gap. A lead only counts as qualified if AdaL can make their video, which means it needs a repo or CHANGELOG.</p>
+    <div class="card"><div class="tablewrap"><table id="qualTable"></table></div></div>
+  </section>
+
+  <!-- SHOW -->
+  <section class="tab" id="tab-show">
+    <h2>Show</h2>
+    <p class="lead">A launch video built from the prospect's latest CHANGELOG entry and rendered in the browser. In production this step calls AdaL's video agent instead.</p>
+    <div class="flex" style="margin-bottom:12px">
+      <select id="vidPick" style="max-width:360px"></select>
+      <button class="btn" id="playBtn">▶ Play</button>
+      <button class="btn primary" id="recBtn">⬇ Render & download .webm</button>
+      <span class="note" id="recNote"></span>
+    </div>
+    <canvas id="vid" width="1280" height="720"></canvas>
+    <div class="card" style="margin-top:16px"><h3>Source: CHANGELOG entry</h3><pre id="clog" style="white-space:pre-wrap;margin:0;font-size:13px"></pre></div>
+  </section>
+
+  <!-- SELL -->
+  <section class="tab" id="tab-sell">
+    <h2>Sell</h2>
+    <p class="lead">One draft per prospect, with the playbook picked by warmth and tier. Nothing gets sent without a human approving it. Log outcomes here too, and the Learn tab updates from them.</p>
+    <div id="pitches"></div>
+  </section>
+
+  <!-- LEARN -->
+  <section class="tab" id="tab-learn">
+    <h2>Learn</h2>
+    <p class="lead">Free-to-paid outcomes by source and by signal update the conversion rates that drive tomorrow's ranking.</p>
+    <div class="flex" style="margin-bottom:16px">
+      <button class="btn primary" id="simBtn">Simulate 1 week (25 contacts)</button>
+      <button class="btn" id="sim3Btn">Simulate 3 weeks</button>
+      <span class="chip sim">Simulated outcomes are labelled. Real outcomes come from Sell.</span>
+    </div>
+    <div class="grid g4" id="learnKpis"></div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card funnel"><h3>Funnel</h3><div id="funnel"></div></div>
+      <div class="card"><h3>Paid conversion by source</h3><div id="bySource"></div><div class="note">Grey line is the starting assumption. Red bar is the learned rate.</div></div>
+      <div class="card"><h3>Paid conversion by days since release</h3><div id="byAge"></div></div>
+      <div class="card"><h3>Recommendations</h3><div id="recos"><div class="note">Run a simulated week to generate recommendations.</div></div></div>
+    </div>
+  </section>
+
+  <!-- SETUP -->
+  <section class="tab" id="tab-setup">
+    <h2>Setup</h2>
+    <p class="lead">Everything the user controls. The ICP, plan prices and weights are data, not code, so another segment or company is a config change.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Warm lists (CSV)</h3>
+        <p class="note">Upload sign-up and attendee exports. Columns: <code>name,email,company,role,website,github,source,list_name,launch_video,release_version,release_days_ago,releases_90d,team_size,stage,funding_days_ago,region,changelog</code>. Only <code>company</code> and <code>source</code> are required. If <code>github</code> (owner/repo) is filled in, release data is fetched live.</p>
+        <div class="flex">
+          <input type="file" id="csvFile" accept=".csv">
+          <button class="btn sm" id="tplBtn">Download template</button>
+          <button class="btn sm" id="sampleBtn">Reload sample data</button>
+        </div>
+        <p class="note" id="csvNote"></p>
+      </div>
+      <div class="card">
+        <h3>Release feed (live GitHub)</h3>
+        <p class="note">Public GitHub releases API. No key needed (60 requests/hr). Each watched repo becomes a cold lead with real release data.</p>
+        <textarea id="repos" rows="6"></textarea>
+        <div class="flex" style="margin-top:8px"><button class="btn primary sm" id="fetchBtn">Fetch live releases</button><span class="note" id="fetchNote"></span></div>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h3>ICP, weights and plan prices</h3>
+        <textarea id="cfg" rows="22"></textarea>
+        <div class="flex" style="margin-top:8px">
+          <button class="btn primary sm" id="cfgSave">Apply</button>
+          <button class="btn sm" id="cfgReset">Reset to defaults</button>
+          <button class="btn sm" id="learnReset">Reset learning & outcomes</button>
+          <span class="note" id="cfgNote"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+<script src="data/sample_leads.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
