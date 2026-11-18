@@ -1,0 +1,27 @@
+# Daily Find: refreshes GitHub releases, Product Hunt launches and X launch posts.
+# Output goes to the `feeds` branch (never main), so it can't conflict with local pushes.
+# The app reads it from raw.githubusercontent.com and falls back to the bundled data/feeds.js.
+name: daily-find
+on:
+  schedule: [{ cron: '0 13 * * *' }]   # 13:00 UTC = 5am PT / 1pm London, before the morning run
+  workflow_dispatch: {}
+permissions: { contents: write }
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Fetch launch signals
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PH_TOKEN: ${{ secrets.PH_TOKEN }}             # optional
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }} # optional, paid X API tier
+        run: node scripts/find.mjs
+      - name: Publish to feeds branch
+        run: |
+          mkdir /tmp/out && cp data/feeds.json data/feeds.js /tmp/out/
+          git config user.name "daily-find" && git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan feeds && git rm -rqf . && cp /tmp/out/* .
+          git add feeds.json feeds.js && git commit -qm "feeds $(date -u +%F)" && git push -f origin feeds

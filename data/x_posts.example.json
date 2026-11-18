@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://x.com/example_founder/status/0",
+    "handle": "example_founder",
+    "author": "Example Founder",
+    "date": "2026-11-15T16:00:00Z",
+    "hasVideo": false,
+    "text": "We just shipped Acme v2.0 🚀\n- Realtime dashboards\n- SSO for teams\n- 3x faster exports\nTry it: https://acme.example"
+  }
+]
