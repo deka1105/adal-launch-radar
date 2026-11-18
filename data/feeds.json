@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T04:09:43.844Z",
+ "generated_at": "2026-11-18T04:10:12.052Z",
  "modes": {
   "github": "api (token)",
   "producthunt": "atom feed",
@@ -23,7 +23,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "A founder's assessment of why Postgres-based backends are winning for …"
+    "The Edge Functions overview page now shows each function's error rates…",
+    "Extension version pinning is deprecated: from August 5, an explicit ve…",
+    "The Management API analytics/endpoints/logs.all endpoint is migrating …",
+    "Supabase now blocks all changes to the realtime schema: creating, alte…"
    ],
    "name": "",
    "email": "support@supabase.io",
@@ -44,7 +47,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "v6.2.0"
+    "Show invite link settings modal when clicking edit invite link in team…",
+    "Exclude test files from CODEOWNERS foundation approval",
+    "Preserve existing enabled state during seed",
+    "Use randomString() for booking uid in slots e2e tests to avoid unique …"
    ],
    "name": "",
    "email": "support@cal.com",
@@ -65,7 +71,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "v4.82.0"
+    "Gate legacy v3 surfaces behind cutoff switches",
+    "Add Developer preset and rename Ingestion to Application",
+    "Normalize provider usage and supplied costs",
+    "Split the v4 banner into brownout and extended-deadline copy"
    ],
    "name": "",
    "email": "contact@langfuse.com",
@@ -109,7 +118,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "twenty/v2.59.0"
+    "Record admin usage limit overrides as arrangements",
+    "Preview chat images inline, browse them, and share attachments with Me…",
+    "Manually link Teams users to workspace members",
+    "Show direct messages in their own sidebar section"
    ],
    "name": "",
    "email": "",
@@ -152,7 +164,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "v2.22.0"
+    "Prevent implicit form submission in editor field settings",
+    "Clarify sender details setting",
+    "Disable signing when undo clears the signature pad",
+    "Improve text field signing ux"
    ],
    "name": "",
    "email": "hi@documenso.com",
@@ -173,7 +188,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "3.20.0"
+    "Api-service: record subscriber session auth method and SDK per environ…",
+    "Api-service,@agentinbox/cli,agent-inbox-mcp: pick a new agent's look i…",
+    "Api-service,human-dashboard,@agentinbox/cli: an agent's look shows on …",
+    "Api-service: drop Slack workspace connections on app uninstall fixes N…"
    ],
    "name": "",
    "email": "support@novu.co",
@@ -194,7 +212,8 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "2026.10.1"
+    "Grant bundle origins on Windows",
+    "Open chat reply links in the browser"
    ],
    "name": "",
    "email": "support@hoppscotch.io",
@@ -215,7 +234,7 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "7372: preserve custom getList response fields in useList and useTable …"
+    "7372 59c6470ca0ecff0588f749ef4530312e7537bfdd Thanks @alicanerdurmaz! …"
    ],
    "name": "",
    "email": "info@refine.dev",
@@ -236,7 +255,10 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "Firecrawl v2.11.0"
+    "Firecrawl Research Index — Added a specialized index for agentic AI/ML…",
+    "Keyless access for core endpoints — Use /scrape, /search, /interact, a…",
+    "Automatic PII redaction — Added a redactPII option that strips persona…",
+    "DeterministicJson format — Added a format that returns structured JSON…"
    ],
    "name": "",
    "email": "",
