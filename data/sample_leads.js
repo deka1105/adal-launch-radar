@@ -1,6 +1,6 @@
 // SAMPLE DATA — every person and company below is fictional (.example domains).
 // Columns match the CSV template users upload in Setup. Real lists replace this.
-// changelog bullets are separated by " | ".
+// changelog bullets are separated by " | ". source: ambassador | london_rsvp | popup | hackathon | github | producthunt | x_post | linkedin_post | cold
 window.SAMPLE_CSV = `name,email,company,role,website,github,source,list_name,launch_video,release_version,release_days_ago,releases_90d,team_size,stage,funding_days_ago,region,changelog
 Maya Okafor,maya@driftline.example,Driftline,Co-founder & CEO,driftline.example,,ambassador,Ambassador intro (Priya R.),none,v3.2,3,11,28,Series A,140,US,"Live trace replay for any request | Slack alerts with root-cause summary | 40% faster dashboard loads | New Go and Rust SDKs"
 Tom Becker,tom@ledgerloop.example,LedgerLoop,Founder,ledgerloop.example,,hackathon,Vapi hackathon,none,v1.4,2,6,6,Seed,,UK,"Voice agent that reconciles invoices on a call | Xero and QuickBooks sync | Audit log export to CSV"
@@ -21,16 +21,16 @@ Nadia Haddad,nadia@lumenly.example,Lumenly,Head of Product,lumenly.example,,lond
 Sam Turner,sam@kettle.example,Kettle Roasters,Owner,kettle.example,,popup,Coffee pop-up · Hackney,none,,,0,6,Bootstrapped,,UK,
 Ines Duarte,ines@promptdeck.example,PromptDeck,Founder,promptdeck.example,,ambassador,Ambassador intro (Marco L.),none,v2.4,5,8,7,Seed,45,EU,"Prompt versioning with rollbacks | Eval runs on every commit | Team review queue"
 Ben Adler,ben@queuebird.example,QueueBird,CTO,queuebird.example,,hackathon,Vapi hackathon,screen_recording,v1.2,8,3,6,Pre-seed,,US,"Voice IVR replacement in 10 minutes | Twilio and Vonage numbers | Live call dashboard"
-Grace Liu,grace@stackpilot.example,StackPilot,CEO,stackpilot.example,,cold,GitHub releases feed,none,v7.2,1,14,80,Series B,120,US,"Preview environments per pull request | Cost guardrails | Terraform export"
-Ahmed Saleh,ahmed@dataquay.example,DataQuay,Founder,dataquay.example,,cold,Product Hunt launch,screen_recording,v1.0,3,2,5,Seed,,EU,"Launch: natural-language queries over Postgres | Chart export | Slack bot"
-Laura Chen,laura@notebird.example,Notebird,Growth Lead,notebird.example,,cold,X launch post,none,v3.5,6,6,18,Seed,,US,"Meeting notes that write the follow-up email | HubSpot sync | Speaker labels"
-Pablo Ortega,pablo@mintpath.example,Mintpath,Co-founder,mintpath.example,,cold,LinkedIn launch post,produced,v2.1,10,3,15,Series A,50,EU,"Expense policies as code | Card controls | Accounting close in a day"
+Grace Liu,grace@stackpilot.example,StackPilot,CEO,stackpilot.example,,github,GitHub releases feed,none,v7.2,1,14,80,Series B,120,US,"Preview environments per pull request | Cost guardrails | Terraform export"
+Ahmed Saleh,ahmed@dataquay.example,DataQuay,Founder,dataquay.example,,producthunt,Product Hunt launch,screen_recording,v1.0,3,2,5,Seed,,EU,"Launch: natural-language queries over Postgres | Chart export | Slack bot"
+Laura Chen,laura@notebird.example,Notebird,Growth Lead,notebird.example,,x_post,X launch post,none,v3.5,6,6,18,Seed,,US,"Meeting notes that write the follow-up email | HubSpot sync | Speaker labels"
+Pablo Ortega,pablo@mintpath.example,Mintpath,Co-founder,mintpath.example,,linkedin_post,LinkedIn launch post,produced,v2.1,10,3,15,Series A,50,EU,"Expense policies as code | Card controls | Accounting close in a day"
 Zara Ahmed,zara@cartwheel.example,Cartwheel,Founder,cartwheel.example,,hackathon,Vapi hackathon,none,v0.4,15,2,2,Pre-seed,,UK,"Voice ordering for Shopify stores | Order status by phone"
-Felix Wagner,felix@schemafy.example,Schemafy,CEO,schemafy.example,,cold,GitHub releases feed,none,v1.8,2,9,10,Seed,,EU,"Visual database migrations | Rollback previews | GitHub Action"
+Felix Wagner,felix@schemafy.example,Schemafy,CEO,schemafy.example,,github,GitHub releases feed,none,v1.8,2,9,10,Seed,,EU,"Visual database migrations | Rollback previews | GitHub Action"
 Olivia Brooks,olivia@rally.example,Rally HQ,Ambassador,rally.example,,ambassador,AdaL ambassador,none,,,0,1,Community,,US,
 Daniel Park,daniel@loopform.example,Loopform,CTO,loopform.example,,london_rsvp,London Dec 3 RSVP,stale,v2.6,35,2,16,Seed,,UK,"Survey logic jumps | Typeform importer"
 Mei Tanaka,mei@hookline.example,Hookline,Founder,hookline.example,,hackathon,Vapi hackathon,none,v1.0,3,4,3,Pre-seed,,US,"Webhook debugger with replay | Signed payload verification | Team inboxes"
 Ali Khan,ali@brewdesk.example,BrewDesk,Owner,brewdesk.example,,popup,Coffee pop-up · Peckham,none,v0.2,40,1,2,Bootstrapped,,UK,"Loyalty stamps on Apple Wallet"
-Rosa Jimenez,rosa@vizcraft.example,Vizcraft,Head of Marketing,vizcraft.example,,cold,Product Hunt launch,none,v4.0,1,5,30,Series A,75,US,"Animated charts from any CSV | Brand themes | Embed anywhere"
+Rosa Jimenez,rosa@vizcraft.example,Vizcraft,Head of Marketing,vizcraft.example,,producthunt,Product Hunt launch,none,v4.0,1,5,30,Series A,75,US,"Animated charts from any CSV | Brand themes | Embed anywhere"
 Theo Laurent,theo@patchday.example,Patchday,Founder,patchday.example,,ambassador,Ambassador intro (Priya R.),produced,v1.5,4,5,4,Pre-seed,,EU,"Dependency updates grouped by risk | Auto-merge rules | Monorepo support"
 Yuki Sato,yuki@speakflow.example,Speakflow,CEO,speakflow.example,,hackathon,Vapi hackathon,none,v2.0,6,7,13,Seed,10,US,"Real-time voice translation for support calls | Zendesk app | 30 languages"`;

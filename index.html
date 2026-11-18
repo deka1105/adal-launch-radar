@@ -43,6 +43,7 @@ section.tab{display:none} section.tab.on{display:block}
 .btn.big{padding:12px 20px;font-size:15px}
 .btn.sm{padding:4px 10px;font-size:12px}
 .btn:disabled{opacity:.5;cursor:default}
+a.btn{text-decoration:none;display:inline-block}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
 .grid{display:grid;gap:16px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
@@ -161,13 +162,21 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
     </div>
     <div class="grid g4" id="kpis"></div>
     <div class="card" style="margin-top:16px" id="top5"><div class="empty">Press <b>Run today's cycle</b> to start.</div></div>
+    <div class="card" style="margin-top:16px" id="followups"></div>
   </section>
 
   <!-- FIND -->
   <section class="tab" id="tab-find">
     <h2>Find</h2>
-    <p class="lead">Every contact source, warm before cold. Upload new lists or fetch live GitHub releases in Setup.</p>
+    <p class="lead">Warm lists come first. Then a daily read of GitHub releases and CHANGELOGs, Product Hunt launches, and X and LinkedIn launch posts. A warm contact whose company just shipped inherits that release.</p>
+    <div class="card note" id="feedStatus" style="margin-bottom:16px"></div>
     <div class="grid g4" id="sourceCards"></div>
+    <div class="card" style="margin-top:16px">
+      <h3>Add X / LinkedIn launch posts</h3>
+      <p class="note">Paste one or more posts, separated by a blank line or <code>---</code>. Include the post URL if you have it. The version, features, website, repo and any video link are pulled out automatically. With an X API token, the daily job does this on its own.</p>
+      <textarea id="postPaste" rows="5" placeholder="https://x.com/acme/status/123&#10;We just shipped Acme v2.0 🚀&#10;- Realtime dashboards&#10;- SSO for teams&#10;Try it: https://acme.com"></textarea>
+      <div class="flex" style="margin-top:8px"><button class="btn primary sm" id="postImport">Import posts</button><button class="btn sm" id="postClear">Clear imported</button><span class="note" id="postNote"></span></div>
+    </div>
     <div class="card" style="margin-top:16px"><div class="tablewrap"><table id="findTable"></table></div></div>
   </section>
 
@@ -186,6 +195,8 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
       <select id="vidPick" style="max-width:360px"></select>
       <button class="btn" id="playBtn">▶ Play</button>
       <button class="btn primary" id="recBtn">⬇ Render & download .webm</button>
+      <button class="btn" id="briefExport">⬇ AdaL video brief (.md)</button>
+      <button class="btn" id="briefCopy">⧉ Copy brief</button>
       <span class="note" id="recNote"></span>
     </div>
     <canvas id="vid" width="1280" height="720"></canvas>
@@ -213,7 +224,10 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
       <div class="card funnel"><h3>Funnel</h3><div id="funnel"></div></div>
       <div class="card"><h3>Paid conversion by source</h3><div id="bySource"></div><div class="note">Grey line is the starting assumption. Red bar is the learned rate.</div></div>
       <div class="card"><h3>Paid conversion by days since release</h3><div id="byAge"></div></div>
-      <div class="card"><h3>Recommendations</h3><div id="recos"><div class="note">Run a simulated week to generate recommendations.</div></div></div>
+      <div class="card"><h3>Message A/B test: reply rate</h3><div id="byAngle"></div><div class="note">Each pitch is assigned an angle by Thompson sampling, so the better angle gets sent more often as evidence builds.</div></div>
+      <div class="card"><h3>Outcome data (CRM)</h3><p class="note">Export every logged outcome, or import a CRM or email export with columns <code>company,outcome</code> (optional: <code>angle,source,days_since_release</code>). Outcome values: no reply, replied, tried free, upgraded, sales call.</p>
+        <div class="flex"><button class="btn sm" id="outExport">⬇ Export outcomes CSV</button><input type="file" id="outFile" accept=".csv"></div><p class="note" id="outNote"></p></div>
+      <div class="card" style="grid-column:1/-1"><h3>Recommendations</h3><div id="recos"><div class="note">Run a simulated week to generate recommendations.</div></div></div>
     </div>
   </section>
 
@@ -233,8 +247,8 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
         <p class="note" id="csvNote"></p>
       </div>
       <div class="card">
-        <h3>Release feed (live GitHub)</h3>
-        <p class="note">Public GitHub releases API. No key needed (60 requests/hr). Each watched repo becomes a cold lead with real release data.</p>
+        <h3>GitHub repos (in-browser refresh)</h3>
+        <p class="note">The daily job (<code>scripts/find.mjs</code>, scheduled by <code>.github/workflows/daily-find.yml</code>) reads <code>config/sources.json</code>. This box refreshes GitHub on the spot with the public API (60 requests/hr). Optional secrets for the daily job: <code>PH_TOKEN</code> (Product Hunt API) and <code>X_BEARER_TOKEN</code> (X API, paid tier).</p>
         <textarea id="repos" rows="6"></textarea>
         <div class="flex" style="margin-top:8px"><button class="btn primary sm" id="fetchBtn">Fetch live releases</button><span class="note" id="fetchNote"></span></div>
       </div>
@@ -264,7 +278,9 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
 
 <!-- modal: welcome + challenge fit -->
 <div id="modal" class="modal" hidden><div class="modal-card"><button class="x" id="modalClose" aria-label="Close">✕</button><div id="modalBody"></div></div></div>
+<script src="lib/parse_post.js"></script>
 <script src="data/sample_leads.js"></script>
+<script src="data/feeds.js"></script>
 <script src="app.js"></script>
 <script src="guide.js"></script>
 </body>
