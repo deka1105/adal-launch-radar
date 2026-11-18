@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T04:09:19.892Z",
+ "generated_at": "2026-11-18T04:09:43.844Z",
  "modes": {
   "github": "api (token)",
   "producthunt": "atom feed",
@@ -44,7 +44,7 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "Full Changelog:"
+    "v6.2.0"
    ],
    "name": "",
    "email": "support@cal.com",
@@ -65,7 +65,7 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "Full Changelog:"
+    "v4.82.0"
    ],
    "name": "",
    "email": "contact@langfuse.com",
@@ -88,8 +88,7 @@
    "changelog": [
     "Surveys with hidden or conditionally not-shown rows and choices no lon…",
     "Block consultant.com self-signups on Formbricks Cloud; invited users a…",
-    "Security hardening for upload handling, survey validation, survey savi…",
-    "Full Changelog:"
+    "Security hardening for upload handling, survey validation, survey savi…"
    ],
    "name": "",
    "email": "hola@formbricks.com",
@@ -132,8 +131,7 @@
    "launch_video": "none",
    "changelog": [
     "Deployed tasks on the node, node-22, node-24 and node-26 runtimes now …",
-    "The webapp and supervisor images now run on Node.js 24.22.3, the Novem…",
-    "Full changelog:"
+    "The webapp and supervisor images now run on Node.js 24.22.3, the Novem…"
    ],
    "name": "",
    "email": "hello@trigger.dev",
@@ -154,7 +152,7 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "Full Changelog:"
+    "v2.22.0"
    ],
    "name": "",
    "email": "hi@documenso.com",
@@ -196,7 +194,7 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "Full Changelog:"
+    "2026.10.1"
    ],
    "name": "",
    "email": "support@hoppscotch.io",
@@ -238,7 +236,7 @@
    "releases_capped": true,
    "launch_video": "none",
    "changelog": [
-    "Full Changelog:"
+    "Firecrawl v2.11.0"
    ],
    "name": "",
    "email": "",
