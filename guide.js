@@ -18,7 +18,7 @@ const STAGES = [
     why: 'AdaL’s problem isn’t a lack of names. It’s having no repeatable way to decide <i>who</i>, <i>why</i> and <i>why now</i>. One button with the same steps every day makes the process repeatable.',
     help: 'A founder gets a 2-minute morning routine in place of an afternoon of scrolling LinkedIn.' },
   { key: 'find', tab: 'find', target: '#sourceCards', title: 'Find: warm lists first, then release signals',
-    what: 'Contacts come from AdaL’s own community lists (ambassadors, London Dec 3, coffee pop-ups, Vapi hackathon) and from a <b>live GitHub releases feed</b>. Each release counts as a buying signal.',
+    what: 'Contacts come from AdaL’s own community lists (ambassadors, London Dec 3, coffee pop-ups, Vapi hackathon) and from a <b>daily read</b> of GitHub releases and CHANGELOGs, Product Hunt launches, and X and LinkedIn launch posts. A warm contact whose company just shipped inherits that release.',
     why: 'AdaL’s leads come from community, not cold outbound. People who already know AdaL convert far better, so they’re scored first, and cold leads only fill the slots that are left.',
     help: 'Pipeline starts from relationships AdaL has already paid for (events, ambassadors), so nothing has to be bought or mass-scraped.' },
   { key: 'qualify', tab: 'qualify', target: '#qualTable', title: 'Qualify: rank by expected revenue',
@@ -30,17 +30,18 @@ const STAGES = [
     why: 'The best demo of AdaL is AdaL doing the work for the prospect. It’s proof, not a claim.',
     help: 'The prospect gets something they can post the same day. Here it’s a canvas template; in production this step calls AdaL’s own video agent (marked SWAP POINT in the code).' },
   { key: 'sell', tab: 'sell', target: '#pitches .card', title: 'Sell: a pitch per prospect, with a human approving each one',
-    what: 'Each prospect gets a draft chosen from three playbooks: <b>warm follow-up</b>, <b>free → paid nudge</b> or <b>Contact Sales</b>. It names the relationship, the release and the video, and offers the plan that fits their tier.',
+    what: 'Each prospect gets a draft chosen from three playbooks (<b>warm follow-up</b>, <b>free → paid nudge</b>, <b>Contact Sales</b>) and one of two message angles under A/B test. It goes out through the right channel (email, X DM or contact page). Day-3 and day-7 follow-ups are scheduled and stop as soon as the prospect replies.',
     why: 'The brief asks for relevance and responsible outreach. Five drafts a day, each approved by a person, is the opposite of mass outreach.',
     help: 'Writing goes from about 15 minutes to about 1 minute per message. Logging an outcome here feeds the Learn tab.' },
   { key: 'learn', tab: 'learn', target: '#bySource', targetUp: true, title: 'Learn: each cycle improves the next ranking',
-    what: 'Outcomes (reply, tried free, paid, sales call) update the conversion rate for each source and for each release age. The next ranking uses the updated rates. Thompson sampling keeps some outreach going to sources it isn’t sure about yet.',
+    what: 'Outcomes (logged here, or imported from a CRM CSV) update the conversion rate for each source, each release age and each message angle. The next ranking uses the updated rates. The A/B test reports P(A beats B) rather than raw counts.',
     why: 'AdaL is spending on several community channels and can’t yet tell which ones turn into revenue.',
     help: 'It answers a budget question: <i>which channel should get the next event, the next ambassador or the next hour?</i>' },
   { key: 'done', tab: 'run', target: '#top5', title: 'The outcome for AdaL', summary: true }
 ];
 
 // ---------- quality checks: expected vs actual ----------
+const sinceTxtG = iso => { const h = (Date.now() - Date.parse(iso)) / 36e5; return h < 48 ? `${Math.round(h)} h` : `${Math.round(h / 24)} days`; };
 const Q = (label, expected, actual, status, note) => ({ label, expected, actual, status, note });
 const ratio = (n, d, metAt, partialAt) => n / Math.max(1, d) >= metAt ? 'met' : n / Math.max(1, d) >= partialAt ? 'partial' : 'miss';
 function todayLeads() { const r = ranked(); return TODAY.map(id => r.find(x => x.id === id)).filter(Boolean); }
@@ -55,7 +56,10 @@ function qualityFor(key) {
       const withRel = all.filter(l => l.release_days_ago != null).length;
       return [
         Q('Today’s 5 drawn from warm lists', '≥ 3 of 5', `${warm} of ${n}`, warm >= 3 ? 'met' : warm >= 1 ? 'partial' : 'miss'),
-        Q('Live public signal feed connected', '≥ 1 real source', LIVE.length ? `${LIVE.length} GitHub repos` : 'offline, sample only', LIVE.length ? 'met' : 'partial'),
+        Q('Live signal sources connected', 'GitHub + Product Hunt + X', FEEDMETA ? `GH ${FEEDMETA.counts.github} · PH ${FEEDMETA.counts.producthunt} · X ${FEEDMETA.counts.x + IMPORTED.filter(l => l.source === 'x_post').length}` : 'none',
+          !FEEDMETA ? 'miss' : (FEEDMETA.counts.github && FEEDMETA.counts.producthunt && (FEEDMETA.counts.x || IMPORTED.some(l => l.source === 'x_post'))) ? 'met' : 'partial',
+          FEEDMETA && !FEEDMETA.counts.x && !IMPORTED.some(l => l.source === 'x_post') ? 'X needs an API token, or paste posts in Find' : ''),
+        Q('Feed freshness', '≤ 24 h old', FEEDMETA ? sinceTxtG(FEEDMETA.generated_at) : '—', FEEDMETA && Date.now() - Date.parse(FEEDMETA.generated_at) < DAY ? 'met' : 'partial', FEEDMETA?.remote ? '' : 'Bundled snapshot; the daily Action refreshes it'),
         Q('Contacts with a release signal', '≥ 50%', pct(withRel / Math.max(1, all.length)), ratio(withRel, all.length, 0.5, 0.25)),
         Q('Data collection is targeted, not bulk', '< 100 contacts/day', `${all.length} scanned`, all.length < 100 ? 'met' : 'partial')
       ];
@@ -99,6 +103,8 @@ function qualityFor(key) {
         Q('Video attached', '5 of 5', `${vid} of ${n}`, ratio(vid, 5, 1, 0.6)),
         Q('Offer matches tier (plan vs sales call)', '5 of 5', `${offer} of ${n}`, ratio(offer, 5, 1, 0.6)),
         Q('Reachable contact on file', '5 of 5', `${contact} of ${n}`, ratio(contact, 5, 1, 0.6), contact < n ? 'Cold release-feed leads still need a contact found' : ''),
+        Q('Follow-up sequence scheduled after send', 'every sent pitch', `${top.filter(l => PITCH[l.id]?.fu).length} of ${top.filter(l => PITCH[l.id]?.sentAt).length} sent`, top.some(l => PITCH[l.id]?.sentAt) ? 'met' : 'partial', top.some(l => PITCH[l.id]?.sentAt) ? '' : 'Approve, then send, to start a sequence'),
+        Q('Message angle under A/B test', 'every pitch', `${top.filter(l => PITCH[l.id]?.angle).length} of ${n}`, ratio(top.filter(l => PITCH[l.id]?.angle).length, n, 1, 0.5)),
         Q('Human reviewed before send', '100%', `${reviewed} of ${n}`, ratio(reviewed, 5, 1, 0.01) === 'miss' ? 'partial' : ratio(reviewed, 5, 1, 0.01), reviewed < n ? 'Waiting on you: approve or skip below' : '')
       ];
     }
@@ -111,7 +117,8 @@ function qualityFor(key) {
         Q('Sources with enough data (≥ 5 each)', '5 of 5', `${enough} of 5`, ratio(enough, 5, 1, 0.4)),
         Q('Actionable recommendations', '≥ 1', String(recos), recos ? 'met' : 'miss'),
         Q('Free → paid conversion of contacted', '≥ 10% (assumption)', f.contacted ? pct(conv) : '—', !f.contacted ? 'miss' : conv >= 0.1 ? 'met' : 'partial'),
-        Q('Outcomes are real, not simulated', '> 0 real', `${s.real} real · ${s.simulated} sim`, s.real ? 'met' : 'partial', 'Log outcomes in Sell, or connect CRM webhooks')
+        Q('A/B test has enough data to call', '≥ 10 sends per angle', Object.values(s.byAngle).map(x => x.contacted).join(' / '), Object.values(s.byAngle).every(x => x.contacted >= 10) ? 'met' : Object.values(s.byAngle).some(x => x.contacted) ? 'partial' : 'miss'),
+        Q('Outcomes are real, not simulated', '> 0 real', `${s.real} real · ${s.simulated} sim`, s.real ? 'met' : 'partial', 'Log outcomes in Sell, or import a CRM CSV')
       ];
     }
   }
@@ -215,11 +222,12 @@ const FIT = [
   ['Context: bots find names but can’t judge fit', 'Evaluate ICP match, video need, and likelihood to pay', 'Each lead is scored on fit (ICP config), need (launch-video gap), timing (release freshness) and likelihood to pay (tier from release cadence) to give expected MRR', 'Qualify', 'met'],
   ['Context: relevant signals', 'Stage, geography, launches, fundraising, video/social evidence', 'Stage and region in the ICP config. Launches are the <b>primary</b> signal. Funding is a tiebreaker. Video evidence is the gap score', 'Qualify · Setup', 'met'],
   ['Context: whom, how, which approach', 'Decide whom to contact, how to communicate relevance, and which approach works', 'Top 5 plus a playbook per lead (warm follow-up / upgrade nudge / sales). Outcomes rank the playbooks over time', 'Sell · Learn', 'met'],
-  ['Context: no Clay/Apollo, no guaranteed data', 'Work without paid prospecting providers', 'Uses AdaL’s own event lists (CSV) and the free public GitHub releases API. Sources plug in as adapters', 'Find · Setup', 'met'],
+  ['Context: no Clay/Apollo, no guaranteed data', 'Work without paid prospecting providers', 'Uses AdaL’s own event lists (CSV), the free GitHub API, the public Product Hunt feed and pasted X/LinkedIn posts. Paid APIs (PH token, X token) are optional upgrades', 'Find · Setup', 'met'],
+  ['Find: daily read of launch signals', 'Changelogs, GitHub releases, Product Hunt, X and LinkedIn launch posts, every day', 'scripts/find.mjs runs daily via GitHub Action (releases, CHANGELOG.md fallback, PH feed or API, X API). LinkedIn and token-less X come in by paste', 'Find', 'partial'],
   ['Context: no indiscriminate collection or mass outreach', 'Repeatable workflow, not volume', '5 a day, warm first, a human approves every message, and nothing sends automatically', 'Sell', 'met'],
   ['Exploration 01: ICP discovery & commercial signals', 'Help the team see why a prospect is promising rather than produce a bigger list', 'Each lead carries a one-line “why now” and its factor breakdown. Only 15–50% qualify', 'Qualify', 'met'],
-  ['Exploration 02: relevant & personalised engagement', 'Message angle, follow-ups, human oversight', 'A launch video from their own CHANGELOG, a pitch that references the relationship and release, and human approval. Automated follow-up sequences are not built yet', 'Show · Sell', 'partial'],
-  ['Exploration 03: experimentation & learning loop', 'Compare strategies, interpret tests, improve decisions', 'Beta-Bernoulli rates by source and release age, Thompson sampling, and one-click recommendations. Outcomes are simulated for now', 'Learn', 'partial'],
+  ['Exploration 02: relevant & personalised engagement', 'Message angle, follow-ups, human oversight', 'A launch video from their own CHANGELOG, an AdaL brief, a pitch that names the relationship and release, angle chosen by test, sent via the right channel, day-3/day-7 follow-ups that stop on reply, and human approval', 'Show · Sell', 'met'],
+  ['Exploration 03: experimentation & learning loop', 'Compare strategies, interpret tests, improve decisions', 'Beta-Bernoulli rates by source, release age and message angle; an A/B readout as P(A beats B); Thompson sampling; CRM CSV import and export; recommendations. Real outcome volume is still zero, so the demo runs on simulation', 'Learn', 'partial'],
   ['Impact: more qualified opportunities', 'Qualification rate, positive responses, meetings, opportunities', 'Qualified %, the funnel (replied → tried free → paid → Max/sales), expected and realised MRR', 'Today · Learn', 'met'],
   ['Impact: go-to-market efficiency', 'Research time per prospect, prep time, leads per person', 'Research time saved per cycle; drafts and videos generated automatically. The 45→2 min figure is an assumption to validate', 'Today', 'partial'],
   ['Impact: better outreach decisions', 'Which signals, messages and sequences work', 'Conversion by source and by days since release, plus recommendations such as “tighten window to 7 days” and “pop-ups are community, not pipeline”', 'Learn', 'met'],
