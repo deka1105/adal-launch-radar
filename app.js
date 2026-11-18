@@ -22,7 +22,7 @@ const DEFAULT_CONFIG = {
   followup_days: [3, 7],
   research_minutes_manual: 45,
   research_minutes_tool: 2,
-  feeds_url: 'https://raw.githubusercontent.com/deka1105/adal-launch-radar/feeds/feeds.json',
+  feeds_url: 'https://raw.githubusercontent.com/deka1105/adal-launch-radar/refs/heads/feeds/feeds.json',
   watch_repos: [
     'supabase/supabase', 'calcom/cal.com', 'langfuse/langfuse', 'formbricks/formbricks',
     'twentyhq/twenty', 'triggerdotdev/trigger.dev', 'documenso/documenso', 'novuhq/novu',
@@ -57,6 +57,7 @@ function mergeDeep(base, over) {
 }
 
 let CFG = mergeDeep(structuredClone(DEFAULT_CONFIG), store.get('cfg', null));
+if (/adal-launch-radar\/feeds\/feeds\.json$/.test(CFG.feeds_url)) CFG.feeds_url = DEFAULT_CONFIG.feeds_url; // migrate old URL
 let LEADS = [];                              // warm lists (CSV)
 let LIVE = [];                               // daily feeds: GitHub, Product Hunt, X
 let IMPORTED = store.get('imported', []);    // pasted X / LinkedIn posts
