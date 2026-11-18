@@ -93,7 +93,35 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;z-index:9}
 .toast.on{opacity:1}
 .empty{padding:32px;text-align:center;color:var(--muted)}
+/* guided overlay */
+.spot{position:fixed;z-index:20;border-radius:12px;box-shadow:0 0 0 9999px rgba(10,8,14,.55);outline:3px solid var(--accent);pointer-events:none;transition:all .35s ease;opacity:0}
+.spot.on{opacity:1}
+.coach{position:fixed;z-index:21;right:20px;bottom:20px;width:min(460px,calc(100vw - 32px));max-height:calc(100vh - 40px);overflow:auto;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.35);display:none}
+.coach.on{display:block}
+.coach h2{font-size:18px;margin:6px 0 10px}
+.coach-top{display:flex;justify-content:space-between;align-items:center}
+.coach .x,.modal .x{border:0;background:none;color:var(--muted);font-size:16px;cursor:pointer;padding:4px 8px}
+.coach .blk{margin:0 0 10px}
+.coach .blk b.k{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--brand);margin-bottom:2px}
+.coach .brief{font-size:12px;color:var(--muted);border-left:3px solid var(--brand);padding-left:8px;margin:0 0 10px}
+.coach-nav{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.qtable{width:100%;font-size:12px;border-collapse:collapse;margin-top:4px}
+.qtable td,.qtable th{padding:5px 4px;border-bottom:1px solid var(--line);text-transform:none;letter-spacing:0;cursor:default}
+.qs{font-weight:800;white-space:nowrap}
+.qs.met{color:var(--good)} .qs.partial{color:var(--warn)} .qs.miss{color:var(--bad)}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(10,8,14,.6);display:grid;place-items:center;padding:16px}
+.modal[hidden]{display:none}
+.modal-card{position:relative;background:var(--panel);color:var(--ink);border-radius:16px;max-width:880px;width:100%;max-height:calc(100vh - 32px);overflow:auto;padding:24px}
+.modal-card .x{position:absolute;top:12px;right:12px}
+.fit td:first-child{width:34%;font-weight:600}
+.fit td{font-size:13px}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700}
+.pill.met{background:color-mix(in srgb,var(--good) 20%,transparent);color:var(--good)}
+.pill.partial{background:color-mix(in srgb,var(--warn) 20%,transparent);color:var(--warn)}
+.pill.miss{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.helpbtn{margin-left:8px;vertical-align:middle}
 @media (max-width:600px){
+  .coach{right:16px;left:16px;bottom:16px;width:auto;max-height:60vh}
   header,nav{padding-left:16px;padding-right:16px}
   .row{grid-template-columns:100px 1fr 56px}
   .prospect{grid-template-columns:32px 1fr}
@@ -106,6 +134,8 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
   <h1>AdaL <span>Launch Radar</span></h1>
   <div class="sub">Warm community leads who just shipped → launch video from their CHANGELOG → pitch → learn</div>
   <div class="spacer"></div>
+  <button class="btn" id="briefBtn">📋 Challenge fit</button>
+  <label class="flex note" style="gap:6px;cursor:pointer"><input type="checkbox" id="guideToggle" checked> Guided mode</label>
   <button class="btn primary big" id="runBtn">▶ Run today's cycle</button>
 </header>
 <nav id="nav">
@@ -222,6 +252,18 @@ textarea.msg{font:14px/1.55 Inter,sans-serif;min-height:170px}
   </section>
 </main>
 <div class="toast" id="toast"></div>
+
+<!-- guided overlay -->
+<div id="spot" class="spot"></div>
+<aside id="coach" class="coach" role="dialog" aria-live="polite">
+  <div class="coach-top"><span id="coachStep" class="chip"></span><button class="x" id="coachClose" aria-label="Close guide">✕</button></div>
+  <h2 id="coachTitle"></h2>
+  <div id="coachBody"></div>
+  <div class="flex coach-nav"><button class="btn sm" id="coachPrev">← Back</button><div class="spacer" style="flex:1"></div><button class="btn primary sm" id="coachNext">Next →</button></div>
+</aside>
+
+<!-- modal: welcome + challenge fit -->
+<div id="modal" class="modal" hidden><div class="modal-card"><button class="x" id="modalClose" aria-label="Close">✕</button><div id="modalBody"></div></div></div>
 <script src="data/sample_leads.js"></script>
 <script src="app.js"></script>
 </body>

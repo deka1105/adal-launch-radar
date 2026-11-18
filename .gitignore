@@ -2,3 +2,16 @@
 *.log
 *.csv
 !data/*.csv
+
+# Auto-added by watcher
+.venv/
+env/
+dist/
+.pytest_cache/
+.env/
+build/
+__pycache__/
+venv/
+.tox/
+node_modules/
+.mypy_cache/
