@@ -38,7 +38,11 @@ async function github() {
         lead = { ...lead, release_version: l.tag_name, release_date: l.published_at, release_url: l.html_url,
           releases_90d: rels.filter(r => now - Date.parse(r.published_at) <= 90 * DAY).length, releases_capped: rels.length === 30,
           launch_video: /youtube\.com|youtu\.be|loom\.com|vimeo\.com|\.mp4|\.mov|<video|\.gif/i.test(body) ? 'produced' : 'none',
-          changelog: bullets(body.replace(/\bby @\S+.*$/gim, ''), 4).length ? bullets(body.replace(/ by @\S+.*$/gim, ''), 4) : [clean(l.name || l.tag_name)] };
+          changelog: bullets(body, 4) };
+        if (!lead.changelog.length) { // release body had nothing usable: try CHANGELOG.md, then the release title
+          const c = changelogLatest(await get(`https://raw.githubusercontent.com/${full}/HEAD/CHANGELOG.md`).catch(() => ''));
+          lead.changelog = c?.bullets?.length ? c.bullets : [clean(l.name || l.tag_name)];
+        }
       } else {
         // no GitHub releases: read the latest CHANGELOG.md section instead
         const md = await get(`https://raw.githubusercontent.com/${full}/HEAD/CHANGELOG.md`).catch(() => '');
