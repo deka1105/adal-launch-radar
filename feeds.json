@@ -1,0 +1,1133 @@
+{
+ "generated_at": "2026-11-20T20:59:40.925Z",
+ "modes": {
+  "github": "api (token)",
+  "producthunt": "atom feed",
+  "x": "manual import"
+ },
+ "counts": {
+  "github": 12,
+  "producthunt": 47,
+  "x": 0
+ },
+ "errors": [],
+ "leads": [
+  {
+   "company": "Supabase",
+   "github": "supabase/supabase",
+   "website": "github.com/supabase/supabase",
+   "release_version": "v1.26.08",
+   "release_date": "2026-08-07T13:57:57Z",
+   "release_url": "https://github.com/supabase/supabase/releases/tag/v1.26.08",
+   "releases_90d": 0,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "The Edge Functions overview page now shows each function's error rates…",
+    "Extension version pinning is deprecated: from August 5, an explicit ve…",
+    "The Management API analytics/endpoints/logs.all endpoint is migrating …",
+    "Supabase now blocks all changes to the realtime schema: creating, alte…"
+   ],
+   "name": "",
+   "email": "support@supabase.io",
+   "twitter": "supabase",
+   "contact_url": "https://supabase.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Cal.com, Inc.",
+   "github": "calcom/cal.com",
+   "website": "github.com/calcom/cal.com",
+   "release_version": "v6.2.0",
+   "release_date": "2026-03-01T23:49:01Z",
+   "release_url": "https://github.com/calcom/cal.diy/releases/tag/v6.2.0",
+   "releases_90d": 0,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Show invite link settings modal when clicking edit invite link in team…",
+    "Exclude test files from CODEOWNERS foundation approval",
+    "Preserve existing enabled state during seed",
+    "Use randomString() for booking uid in slots e2e tests to avoid unique …"
+   ],
+   "name": "",
+   "email": "support@cal.com",
+   "twitter": "calcom",
+   "contact_url": "https://cal.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Langfuse",
+   "github": "langfuse/langfuse",
+   "website": "github.com/langfuse/langfuse",
+   "release_version": "v4.83.0",
+   "release_date": "2026-11-19T10:30:16Z",
+   "release_url": "https://github.com/langfuse/langfuse/releases/tag/v4.83.0",
+   "releases_90d": 30,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "New Scatter view, remove List",
+    "Navigate between items from single queue item view (LFE-18664)",
+    "Extract skill requests and share project ID resolution",
+    "Collapse large filter value groups"
+   ],
+   "name": "",
+   "email": "contact@langfuse.com",
+   "twitter": "langfuse",
+   "contact_url": "https://langfuse.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Formbricks",
+   "github": "formbricks/formbricks",
+   "website": "github.com/formbricks/formbricks",
+   "release_version": "6.2.2",
+   "release_date": "2026-11-20T15:23:37Z",
+   "release_url": "https://github.com/formbricks/formbricks/releases/tag/6.2.2",
+   "releases_90d": 30,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Bound authentication requests and rate-limit storage to prevent Valkey…",
+    "Require the emailed-link proof and explicit confirmation before SSO re…",
+    "Enforce database certificate verification for migrations when the data…",
+    "Fix creative counter flushing in Redis Cluster, including counters fro…"
+   ],
+   "name": "",
+   "email": "hola@formbricks.com",
+   "twitter": "formbricks",
+   "contact_url": "https://formbricks.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Twenty",
+   "github": "twentyhq/twenty",
+   "website": "github.com/twentyhq/twenty",
+   "release_version": "twenty/v2.59.0",
+   "release_date": "2026-11-16T15:43:25Z",
+   "release_url": "https://github.com/twentyhq/twenty/releases/tag/twenty/v2.59.0",
+   "releases_90d": 30,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Record admin usage limit overrides as arrangements",
+    "Preview chat images inline, browse them, and share attachments with Me…",
+    "Manually link Teams users to workspace members",
+    "Show direct messages in their own sidebar section"
+   ],
+   "name": "",
+   "email": "",
+   "twitter": "",
+   "contact_url": "https://twenty.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Trigger.dev",
+   "github": "triggerdotdev/trigger.dev",
+   "website": "github.com/triggerdotdev/trigger.dev",
+   "release_version": "v4.8.8",
+   "release_date": "2026-11-20T12:05:15Z",
+   "release_url": "https://github.com/triggerdotdev/trigger.dev/releases/tag/v4.8.8",
+   "releases_90d": 30,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "The MCP listruns tool can now filter runs by queue, batch, schedule an…",
+    "When OIDC token requests are still throttled after retries, auth.getOI…",
+    "Stop losing a run's suspend when the supervisor's first attempt to han…",
+    "The remote MCP server can now list the tags used on your runs, search …"
+   ],
+   "name": "",
+   "email": "hello@trigger.dev",
+   "twitter": "triggerdotdev",
+   "contact_url": "https://trigger.dev",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "documenso",
+   "github": "documenso/documenso",
+   "website": "github.com/documenso/documenso",
+   "release_version": "v2.22.0",
+   "release_date": "2026-11-13T01:34:30Z",
+   "release_url": "https://github.com/documenso/documenso/releases/tag/v2.22.0",
+   "releases_90d": 6,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Prevent implicit form submission in editor field settings",
+    "Clarify sender details setting",
+    "Disable signing when undo clears the signature pad",
+    "Improve text field signing ux"
+   ],
+   "name": "",
+   "email": "hi@documenso.com",
+   "twitter": "documenso",
+   "contact_url": "https://documenso.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Novu",
+   "github": "novuhq/novu",
+   "website": "github.com/novuhq/novu",
+   "release_version": "v3.20.0",
+   "release_date": "2026-11-16T14:59:05Z",
+   "release_url": "https://github.com/novuhq/novu/releases/tag/v3.20.0",
+   "releases_90d": 14,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Api-service: record subscriber session auth method and SDK per environ…",
+    "Api-service,@agentinbox/cli,agent-inbox-mcp: pick a new agent's look i…",
+    "Api-service,human-dashboard,@agentinbox/cli: an agent's look shows on …",
+    "Api-service: drop Slack workspace connections on app uninstall fixes N…"
+   ],
+   "name": "",
+   "email": "support@novu.co",
+   "twitter": "novuhq",
+   "contact_url": "https://go.novu.co/github",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Hoppscotch",
+   "github": "hoppscotch/hoppscotch",
+   "website": "github.com/hoppscotch/hoppscotch",
+   "release_version": "2026.10.1",
+   "release_date": "2026-11-05T08:15:08Z",
+   "release_url": "https://github.com/hoppscotch/hoppscotch/releases/tag/2026.10.1",
+   "releases_90d": 6,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Grant bundle origins on Windows",
+    "Open chat reply links in the browser"
+   ],
+   "name": "",
+   "email": "support@hoppscotch.io",
+   "twitter": "hoppscotch_io",
+   "contact_url": "https://hoppscotch.com",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "refine",
+   "github": "refinedev/refine",
+   "website": "github.com/refinedev/refine",
+   "release_version": "@refinedev/core@5.0.12",
+   "release_date": "2026-04-02T16:44:33Z",
+   "release_url": "https://github.com/refinedev/refine/releases/tag/%40refinedev/core%405.0.12",
+   "releases_90d": 0,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "7372 59c6470ca0ecff0588f749ef4530312e7537bfdd Thanks @alicanerdurmaz! …"
+   ],
+   "name": "",
+   "email": "info@refine.dev",
+   "twitter": "refine_dev",
+   "contact_url": "https://refine.dev",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Mendable AI is now Firecrawl",
+   "github": "mendableai/firecrawl",
+   "website": "github.com/mendableai/firecrawl",
+   "release_version": "v2.11.0",
+   "release_date": "2026-06-19T15:09:30Z",
+   "release_url": "https://github.com/firecrawl/firecrawl/releases/tag/v2.11.0",
+   "releases_90d": 0,
+   "releases_capped": true,
+   "launch_video": "none",
+   "changelog": [
+    "Firecrawl Research Index — Added a specialized index for agentic AI/ML…",
+    "Keyless access for core endpoints — Use /scrape, /search, /interact, a…",
+    "Automatic PII redaction — Added a redactPII option that strips persona…",
+    "DeterministicJson format — Added a format that returns structured JSON…"
+   ],
+   "name": "",
+   "email": "",
+   "twitter": "",
+   "contact_url": "https://github.com/firecrawl",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "Dub.co",
+   "github": "dubinc/dub",
+   "website": "github.com/dubinc/dub",
+   "name": "",
+   "email": "support@dub.co",
+   "twitter": "dubdotco",
+   "contact_url": "https://dub.co",
+   "team_size": null,
+   "source": "github",
+   "list_name": "GitHub releases (live)"
+  },
+  {
+   "company": "tinytldr",
+   "name": "AJ Rahim",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-10T23:15:57-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Templates for your agents"
+   ],
+   "release_url": "https://www.producthunt.com/products/tinytldr",
+   "contact_url": "https://www.producthunt.com/products/tinytldr",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "pickfit",
+   "name": "念誠",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-17T21:38:56-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Every tool tested in a sandbox before it's recommended"
+   ],
+   "release_url": "https://www.producthunt.com/products/pickfit",
+   "contact_url": "https://www.producthunt.com/products/pickfit",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Zethos",
+   "name": "Kevin William David",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-18T16:53:37-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "The ledger you and your AI work from"
+   ],
+   "release_url": "https://www.producthunt.com/products/zethos",
+   "contact_url": "https://www.producthunt.com/products/zethos",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Cup of Sugar",
+   "name": "Eddie Silva",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-15T01:17:50-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Share a dream, let Cubby break it into small steps."
+   ],
+   "release_url": "https://www.producthunt.com/products/cup-of-sugar-2",
+   "contact_url": "https://www.producthunt.com/products/cup-of-sugar-2",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "DWaste",
+   "name": "Suman Kunwar",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-18T03:42:26-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Eliminate recycling contamination with low-power Edge AI"
+   ],
+   "release_url": "https://www.producthunt.com/products/deep-waste",
+   "contact_url": "https://www.producthunt.com/products/deep-waste",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Salus",
+   "name": "Begaiym Adylbek kyzy",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-16T16:35:53-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Discover benefits and public support in the Czech Republic"
+   ],
+   "release_url": "https://www.producthunt.com/products/salus",
+   "contact_url": "https://www.producthunt.com/products/salus",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Saparo",
+   "name": "Justin Jincaid",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T00:29:12-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Muse for shopping with deals stacks"
+   ],
+   "release_url": "https://www.producthunt.com/products/saparo",
+   "contact_url": "https://www.producthunt.com/products/saparo",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Fack’d",
+   "name": "Philip Loyd",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T18:06:25-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Fact checks right on YouTube as it plays, with sources"
+   ],
+   "release_url": "https://www.producthunt.com/products/fack-d",
+   "contact_url": "https://www.producthunt.com/products/fack-d",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Currents",
+   "name": "Sumit Saurabh",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T06:02:31-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Currents for Claude & Codex to see all your tests"
+   ],
+   "release_url": "https://www.producthunt.com/products/currents-4",
+   "contact_url": "https://www.producthunt.com/products/currents-4",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "ThreadLore",
+   "name": "Ken Nunes",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T18:03:00-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Turn fabric photos into editable loom drafts"
+   ],
+   "release_url": "https://www.producthunt.com/products/threadlore",
+   "contact_url": "https://www.producthunt.com/products/threadlore",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Samiksa",
+   "name": "Mihir D",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T20:22:09-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Understand research, test it yourself, publish your own"
+   ],
+   "release_url": "https://www.producthunt.com/products/samiksa",
+   "contact_url": "https://www.producthunt.com/products/samiksa",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Direct by Instagram",
+   "name": "Justin Jincaid",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-18T21:57:27-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Instagram DMs, without the feed or Instagram account"
+   ],
+   "release_url": "https://www.producthunt.com/products/instagram",
+   "contact_url": "https://www.producthunt.com/products/instagram",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "aiteam.space",
+   "name": "Jeanclaude Aoun",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-10T14:14:37-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "An AI team where every agent has its own computer"
+   ],
+   "release_url": "https://www.producthunt.com/products/aiteam-space",
+   "contact_url": "https://www.producthunt.com/products/aiteam-space",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Andromon",
+   "name": "Jayashanka Deshan",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T04:20:09-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Your Android phone, on your computer. Free."
+   ],
+   "release_url": "https://www.producthunt.com/products/andromon",
+   "contact_url": "https://www.producthunt.com/products/andromon",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "tensorViz",
+   "name": "Ayush pratap singh",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-12T13:35:14-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Let your coding agent see inside your PyTorch model"
+   ],
+   "release_url": "https://www.producthunt.com/products/tensorviz",
+   "contact_url": "https://www.producthunt.com/products/tensorviz",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Rox",
+   "name": "Nihal Goyal",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T04:00:00-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Your AI companion for living with chronic illness"
+   ],
+   "release_url": "https://www.producthunt.com/products/rox-2",
+   "contact_url": "https://www.producthunt.com/products/rox-2",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Volcano",
+   "name": "Connor Church",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-18T22:11:24-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "The self-healing agent cloud by Kong"
+   ],
+   "release_url": "https://www.producthunt.com/products/volcano-3",
+   "contact_url": "https://www.producthunt.com/products/volcano-3",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Tamekoshi",
+   "name": "Daniel Kumanaya",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T03:38:06-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "A Tamagotchi-style AI companion that does real work"
+   ],
+   "release_url": "https://www.producthunt.com/products/tamekoshi",
+   "contact_url": "https://www.producthunt.com/products/tamekoshi",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Lumyna Community Challenge",
+   "name": "Yuva Raja",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T20:55:57-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "A million virtual meters. A small pledge against hunger."
+   ],
+   "release_url": "https://www.producthunt.com/products/lumyna-community-challenge",
+   "contact_url": "https://www.producthunt.com/products/lumyna-community-challenge",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Kuc-kuc",
+   "name": "Marko Veselinovic",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-13T12:20:29-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "A knock on the door when dangerous weather comes"
+   ],
+   "release_url": "https://www.producthunt.com/products/kuc-kuc",
+   "contact_url": "https://www.producthunt.com/products/kuc-kuc",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Dozy",
+   "name": "Charvi Bansal",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T13:18:14-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Turns your sleep data into one thing to do today"
+   ],
+   "release_url": "https://www.producthunt.com/products/dozy",
+   "contact_url": "https://www.producthunt.com/products/dozy",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "NetSieve",
+   "name": "MELVIN GEORGE",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T07:32:15-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Block ads, trackers and scam sites in every app on your Mac"
+   ],
+   "release_url": "https://www.producthunt.com/products/netsieve",
+   "contact_url": "https://www.producthunt.com/products/netsieve",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Inkrail",
+   "name": "Aaryan Verma",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T00:46:08-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "A cozy, nostalgic typewriter experience built for deep work."
+   ],
+   "release_url": "https://www.producthunt.com/products/inkrail",
+   "contact_url": "https://www.producthunt.com/products/inkrail",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "tripps",
+   "name": "Kevin Well",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-17T11:25:40-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Plan a group trip with one link, no account needed"
+   ],
+   "release_url": "https://www.producthunt.com/products/tripps",
+   "contact_url": "https://www.producthunt.com/products/tripps",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "FFMPA Kids News",
+   "name": "Ashish Khandelwal",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-12T21:03:20-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Calm, fact-checked news for kids 5 to 15"
+   ],
+   "release_url": "https://www.producthunt.com/products/ffmpa-kids-news",
+   "contact_url": "https://www.producthunt.com/products/ffmpa-kids-news",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "UndoGuard",
+   "name": "jort dockx",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T11:15:42-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "The Ctrl+Z button for autonomous AI agents"
+   ],
+   "release_url": "https://www.producthunt.com/products/undoguard",
+   "contact_url": "https://www.producthunt.com/products/undoguard",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Scam Link Check",
+   "name": "黄聪",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-13T05:32:14-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Paste a suspicious text or link, get a plain-English verdict"
+   ],
+   "release_url": "https://www.producthunt.com/products/scam-link-check",
+   "contact_url": "https://www.producthunt.com/products/scam-link-check",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Groundwork",
+   "name": "Chinedum Okerengwor",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-18T09:21:39-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Claude Code plans that re-runs never overwrite"
+   ],
+   "release_url": "https://www.producthunt.com/products/groundwork-6",
+   "contact_url": "https://www.producthunt.com/products/groundwork-6",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Veryfi Thinking Mode",
+   "name": "Marianna Babayan",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T13:30:01-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "AI agents review and correct receipt and invoice data."
+   ],
+   "release_url": "https://www.producthunt.com/products/veryfi",
+   "contact_url": "https://www.producthunt.com/products/veryfi",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "greatai Review",
+   "name": "Alexander Primak",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T20:56:45-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Free AI + human code review for open source & nonprofits"
+   ],
+   "release_url": "https://www.producthunt.com/products/greatai-review",
+   "contact_url": "https://www.producthunt.com/products/greatai-review",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Mailpipe",
+   "name": "阿怪",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T20:13:55-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Draft Apple Mail replies with your local AI agent CLI"
+   ],
+   "release_url": "https://www.producthunt.com/products/mailpipe-2",
+   "contact_url": "https://www.producthunt.com/products/mailpipe-2",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Interview Coach",
+   "name": "Vincent Chu",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T19:48:51-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Practice job interviews out loud"
+   ],
+   "release_url": "https://www.producthunt.com/products/interview-coach-3",
+   "contact_url": "https://www.producthunt.com/products/interview-coach-3",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Storiara",
+   "name": "Nick Harty",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-17T12:02:24-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "AI producers that find real savings in your film budget"
+   ],
+   "release_url": "https://www.producthunt.com/products/storiara",
+   "contact_url": "https://www.producthunt.com/products/storiara",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Badya",
+   "name": "Mohamed Saeed",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-12T00:29:05-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Learn languages from real content with an agentic AI tutor"
+   ],
+   "release_url": "https://www.producthunt.com/products/badya-ai-language-immersion",
+   "contact_url": "https://www.producthunt.com/products/badya-ai-language-immersion",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Memanto Cloud",
+   "name": "Majid Fekri",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-10T10:16:20-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "A companion memory for agents to improve as you work"
+   ],
+   "release_url": "https://www.producthunt.com/products/memanto-by-moorcheh",
+   "contact_url": "https://www.producthunt.com/products/memanto-by-moorcheh",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Same Moon",
+   "name": "Sherief Elsayed",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-16T03:04:38-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Free bedtime stories for children who had to leave home"
+   ],
+   "release_url": "https://www.producthunt.com/products/same-moon",
+   "contact_url": "https://www.producthunt.com/products/same-moon",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "InteraOne",
+   "name": "Abhishek Kumbhar",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-18T22:13:43-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Open-source Intercom & Zendesk alternative with AI agents"
+   ],
+   "release_url": "https://www.producthunt.com/products/interaone",
+   "contact_url": "https://www.producthunt.com/products/interaone",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Baby's Day In",
+   "name": "Pulkita Manchanda",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T00:50:55-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Turn two phones into a baby monitor"
+   ],
+   "release_url": "https://www.producthunt.com/products/baby-s-day-in",
+   "contact_url": "https://www.producthunt.com/products/baby-s-day-in",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "HelpCard",
+   "name": "Nuvolin software",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T09:26:05-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "a free emergency QR card"
+   ],
+   "release_url": "https://www.producthunt.com/products/helpcard",
+   "contact_url": "https://www.producthunt.com/products/helpcard",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Stormi",
+   "name": "ibrokhim abdivokhidov",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T04:24:03-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "An AI team on your iPhone that does real work"
+   ],
+   "release_url": "https://www.producthunt.com/products/stormi",
+   "contact_url": "https://www.producthunt.com/products/stormi",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Nova by Vybe",
+   "name": "Jean-Baptiste Coger",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T11:54:06-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Nova audits your website free, then fixes what it finds"
+   ],
+   "release_url": "https://www.producthunt.com/products/vybe-4",
+   "contact_url": "https://www.producthunt.com/products/vybe-4",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Conversaflex",
+   "name": "Séraphin Hochart",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T10:59:59-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "AI speaking practice for multilingual teams"
+   ],
+   "release_url": "https://www.producthunt.com/products/conversaflex",
+   "contact_url": "https://www.producthunt.com/products/conversaflex",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "AI Call",
+   "name": "AKIHIRO YOSHIMOTO",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-15T05:11:38-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "An AI that answers and makes your business calls"
+   ],
+   "release_url": "https://www.producthunt.com/products/ai-call",
+   "contact_url": "https://www.producthunt.com/products/ai-call",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Bimdrop",
+   "name": "Federico Laport Rivas",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-13T06:13:29-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "BIM file sharing. Simple and fast"
+   ],
+   "release_url": "https://www.producthunt.com/products/bimdrop",
+   "contact_url": "https://www.producthunt.com/products/bimdrop",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Vatsalya Circle",
+   "name": "Shubham Shaw",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T00:01:42-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Family elder care: check-ins, missed alerts, SOS, scam help"
+   ],
+   "release_url": "https://www.producthunt.com/products/vatsalya-circle",
+   "contact_url": "https://www.producthunt.com/products/vatsalya-circle",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "Docker",
+   "name": "Chris Messina",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T15:04:30-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Built to run on trust, for the agentic era"
+   ],
+   "release_url": "https://www.producthunt.com/products/docker",
+   "contact_url": "https://www.producthunt.com/products/docker",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  },
+  {
+   "company": "MakePixel",
+   "name": "Ervin",
+   "website": "",
+   "github": "",
+   "release_version": "launch",
+   "release_date": "2026-11-19T01:56:32-08:00",
+   "launch_video": "unknown",
+   "video_verified": false,
+   "changelog": [
+    "Pixel art editor for game sprites, tilesets and maps"
+   ],
+   "release_url": "https://www.producthunt.com/products/makepixel",
+   "contact_url": "https://www.producthunt.com/products/makepixel",
+   "source": "producthunt",
+   "list_name": "Product Hunt launch (live)",
+   "saas": null
+  }
+ ]
+}
